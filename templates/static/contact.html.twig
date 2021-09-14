@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Contact{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container">
+<h1 class="text-primary text-center">Contact</h1>
+    {{form_start(form)}}
+    {{form_label(form.nom, 'Saisir votre nom', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Votre nom'}})}}
+
+    {{form_label(form.email, 'Saisir votre mail', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.email, {'attr':{'class':'form-control', 'placeholder':'Votre email'}})}}
+
+    {{form_label(form.sujet, 'Saisir l\'objet du message', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.sujet, {'attr':{'class':'form-control', 'placeholder':'Sujet'}})}}
+
+    {{form_label(form.nom, 'Saisir le message', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.message, {'attr':{'class':'form-control', 'placeholder':'Votre message'}})}}
+
+    {{form_widget(form.bouton, {'label':"Soumettre le formulaire", 'attr':{'class':'btn bg-primary'}})}}
+    {{form_end(form, {render_rest: true})}}
+</div>
+
+
+
+{% endblock %}

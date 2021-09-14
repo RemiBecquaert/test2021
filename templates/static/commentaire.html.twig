@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Commentaire{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container">
+<h1 class="text-primary text-center">Commentaire</h1>
+    {{form_start(form)}}
+    {{form_label(form.nom, 'Saisir votre nom', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Votre nom'}})}}
+
+    {{form_label(form.message, 'Saisir votre message', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.message, {'attr':{'class':'form-control', 'placeholder':'Votre message'}})}}
+
+    {{form_label(form.note, 'Saisir votre note', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.note, {'attr':{'class':'form-control', 'placeholder':'Votre note'}})}}
+
+    {{form_widget(form.bouton, {'label':"Soumettre le formulaire", 'attr':{'class':'btn bg-primary'}})}}
+    {{form_end(form, {render_rest: true})}}
+</div>
+
+
+
+{% endblock %}

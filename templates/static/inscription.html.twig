@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% block title %}{{ parent() }} Inscription{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container">
+<h1 class="text-primary text-center">Inscription</h1>
+
+
+{{form(form)}}
+
+</div>
+
+{% endblock %}
