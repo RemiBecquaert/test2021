@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Ajout fichier{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container">
+<h1 class="text-primary text-center">Ajout fichier</h1>
+{{form (form)}}
+</div>
+
+
+
+{% endblock %}

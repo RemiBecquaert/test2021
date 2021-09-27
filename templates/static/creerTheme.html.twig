@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Créer thème{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container">
+<h1 class="text-primary text-center">Créer un thème de document</h1>
+    {{form_start(form)}}
+    {{form_label(form.nom, 'Créer un nom de thème', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Nom de thème'}})}}
+
+    {{form_widget(form.bouton, {'label':"Créer un nom de thème", 'attr':{'class':'btn bg-primary'}})}}
+    {{form_end(form, {render_rest: true})}}
+</div>
+
+
+
+{% endblock %}

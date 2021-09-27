@@ -6,11 +6,25 @@
 {{ parent() }}
 
 <div class="container">
-<h1 class="text-primary text-center">Inscription</h1>
+<h1 class="text-primary text-center">Formulaire d'inscription</h1>
+    {{form_start(form)}}
+    {{form_label(form.nom, 'Saisir votre nom', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Votre nom'}})}}
 
+    {{form_label(form.prenom, 'Saisir votre prénom', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.prenom, {'attr':{'class':'form-control', 'placeholder':'Votre prénom'}})}}
 
-{{form(form)}}
+    {{form_label(form.email, 'Saisir votre mail', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.email, {'attr':{'class':'form-control', 'placeholder':'Votre email'}})}}
 
+    {{form_label(form.dateNaissance, 'Saisir votre date de naissance', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.dateNaissance, {'attr':{'class':'form-control', 'placeholder':'Date de naissance'}})}}
+
+    {{form_label(form.password, 'Saisir le mot de passe', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.password, {'attr':{'class':'form-control', 'placeholder':'Mot de passe'}})}}
+
+    {{form_widget(form.bouton, {'label':"Soumettre le formulaire", 'attr':{'class':'btn bg-primary'}})}}
+    {{form_end(form, {render_rest: true})}}
 </div>
 
 {% endblock %}
