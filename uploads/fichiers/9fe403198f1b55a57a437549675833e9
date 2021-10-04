@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Link
+Name=LgmRefresh [Halt]
+Icon=/usr/share/icons/fish_rouge.png
+URL=/usr/share/applications/lgmRefreshHalt.desktop

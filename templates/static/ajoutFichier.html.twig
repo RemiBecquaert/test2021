@@ -7,7 +7,18 @@
 
 <div class="container">
 <h1 class="text-primary text-center">Ajout fichier</h1>
-{{form (form)}}
+    {{form_start(form)}}
+    {{form_label(form.nom, 'Choisir le fichier', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Le fichier'}})}}
+
+    {{form_label(form.utilisateur, 'Choisir l\'utilisateur', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.utilisateur, {'attr':{'class':'form-control', 'placeholder':'L\'utilisateur'}})}}
+
+    {{form_label(form.theme, 'Choisir le thème', {'label_attr':{'class':'fw-bold'}})}}
+    {{form_widget(form.theme, {'attr':{'class':'form-control', 'placeholder':'Le thème'}})}}
+
+    {{form_widget(form.bouton, {'label':"Soumettre le formulaire", 'attr':{'class':'btn bg-primary'}})}}
+    {{form_end(form, {render_rest: true})}}
 </div>
 
 

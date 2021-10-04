@@ -20,6 +20,7 @@ class AjoutFichierType extends AbstractType
         $builder
             ->add('nom', FileType::class, array('label' => 'Fichier à upload'))
             ->add('utilisateur', EntityType::class, array('class'=>'App\Entity\Utilisateur', 'choice_label'=>'prenom'))
+            ->add('theme', EntityType::class, array('class'=>'App\Entity\Theme', 'choice_label'=>'nom', 'mapped' => false))
             ->add('bouton', SubmitType::class)
         ;
     }
