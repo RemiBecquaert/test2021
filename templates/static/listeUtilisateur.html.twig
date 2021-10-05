@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Liste d'utilisateurs{% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<h1 class="text-primary text-center">Liste d'utilisateurs</h1>
+
+<div class="container">
+    <div class="table-responsive">  
+        <table class="table">     
+            <thead>     
+                <tr>       
+                    <th scope="col">Nom</th>       
+                    <th scope="col">Prénom</th>       
+                    <th scope="col">Date naissance</th>     
+                    <th scope="col">Date d'inscription</th>     
+                    <th scope="col">Email</th>
+                    <th></th>     
+                </tr>    
+            </thead>    
+            <tbody> 
+    {% for utilisateur in utilisateurs %}
+            <tr class="{{ cycle(['table-secondary', 'table-primary'], loop.index0) }}">
+                <td>{{ utilisateur.nom | upper }}</td>
+                <td>{{ utilisateur.prenom | capitalize }}</td>
+                <td>{{ utilisateur.dateNaissance | date ("d/m/Y") }}</td>
+                <td>{{ utilisateur.dateInscription | date ("d/m/Y H:i") }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td><a href="{{path('listeUtilisateur', {'id':utilisateur.id})}}"><i class="bi bi-trash-fill"></i></a></td>
+            </tr>
+    {% endfor %}        
+            </tbody>   
+        </table> 
+    </div>
+</div>    
+
+
+{% endblock %}

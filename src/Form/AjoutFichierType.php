@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Fichier;
+use App\Entity\Theme;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,8 +20,10 @@ class AjoutFichierType extends AbstractType
     {
         $builder
             ->add('nom', FileType::class, array('label' => 'Fichier à upload'))
-            ->add('utilisateur', EntityType::class, array('class'=>'App\Entity\Utilisateur', 'choice_label'=>'prenom'))
-            ->add('theme', EntityType::class, array('class'=>'App\Entity\Theme', 'choice_label'=>'nom', 'mapped' => false))
+            ->add('utilisateur', EntityType::class, array('class'=>'App\Entity\Utilisateur', 'choice_label'=>function ($utilisateur){
+                return $utilisateur->getNom().' '.$utilisateur->getPrenom();
+            }))
+            ->add('themes', EntityType::class, array('class'=>'App\Entity\Theme', 'choice_label'=>'nom', 'expanded'=>true, 'multiple'=>true))
             ->add('bouton', SubmitType::class)
         ;
     }

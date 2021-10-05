@@ -53,12 +53,17 @@ class Fichier
     /**
      * @ORM\ManyToMany(targetEntity=Theme::class, inversedBy="fichiers")
      */
-    private $theme;
+    private $themes;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $original;
 
     public function __construct()
     {
         $this->telechargers = new ArrayCollection();
-        $this->theme = new ArrayCollection();
+        $this->themes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,15 +164,15 @@ class Fichier
     /**
      * @return Collection|Theme[]
      */
-    public function getTheme(): Collection
+    public function getThemes(): Collection
     {
-        return $this->theme;
+        return $this->themes;
     }
 
     public function addTheme(Theme $theme): self
     {
-        if (!$this->theme->contains($theme)) {
-            $this->theme[] = $theme;
+        if (!$this->themes->contains($theme)) {
+            $this->themes[] = $theme;
         }
 
         return $this;
@@ -175,7 +180,19 @@ class Fichier
 
     public function removeTheme(Theme $theme): self
     {
-        $this->theme->removeElement($theme);
+        $this->themes->removeElement($theme);
+
+        return $this;
+    }
+
+    public function getOriginal(): ?string
+    {
+        return $this->original;
+    }
+
+    public function setOriginal(string $original): self
+    {
+        $this->original = $original;
 
         return $this;
     }
